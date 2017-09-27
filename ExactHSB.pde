@@ -8,13 +8,15 @@ float[] RGBtoHSB(float r, float g, float b) {
   while(H >= 360)H-=360;
   if (max == b & 0 <= H & H <= 90)H+=180;
   if (max == g & 270 <= H & H <= 360)H-=180;
-
+  
+  H = H * 256 / 360;
   S = max==0?0:256*(max-min)/max;
   B = max;
   return new float[]{H, S, B};
 }
 
 float[] HSBtoRGB(float H, float S, float B) {
+  H = H * 360 / 256;
   float 
     max = B, 
     min = int( max - max * S / 256), 
