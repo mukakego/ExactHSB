@@ -46,7 +46,7 @@ float[] HSBtoRGB(float H, float S, float B) {
   return new float[]{r, g, b};
 }
 
-color HSBtoCOL(int H, int S, int B) {
+color HSBtoCOL(float H, float S, float B) {
   float[] hoge = HSBtoRGB(H, S, B);
   return color(hoge[0], hoge[1], hoge[2]);
 }
